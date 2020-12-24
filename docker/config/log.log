@@ -1,0 +1,64 @@
+{master:0}[edit]
+root@spine1# set system services netconf traceoptions flag all 
+
+{master:0}[edit]
+root@spine1# set system services netconf traceoptions file netconf   
+
+{master:0}[edit]
+root@spine1# commit 
+configuration check succeeds
+commit complete
+
+{master:0}[edit]
+root@spine1# run show log netconf | no-more 
+Apr  1 06:48:23 [NETCONF] Started tracing session: 4662
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <!-- No zombies were killed during the creation of this user interface -->
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <!-- user nornir, class j-super-user -->
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing:   <capabilities>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring</capability>
+    <capability>http://xml.juniper.net/netconf/junos/1.0</capability>
+    <capability>http://xml.juniper.net/dmi/system/1.0</capability>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing:   </capabilities>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing:   <session-id>4662</session-id>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: </hello>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: ]]>]]>
+Apr  1 06:48:23 [NETCONF] - [4662] Incoming: <?xml version="1.0" encoding="UTF-8"?><nc:hello xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0"><nc:capabilities><nc:capability>urn:ietf:params:netconf:base:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:base:1.1</nc:capability><nc:capability>urn:ietf:params:netconf:capability:writable-running:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:candidate:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:rollback-on-error:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:startup:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file,https,sftp</nc:capability><nc:capability>urn:ietf:params:netconf:capability:validate:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:xpath:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:notification:1.0</nc:capability><nc:capability>urn:liberouter:params:netconf:capability:power-control:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:interleave:1.0</nc:capability><nc:capability>urn:ietf:params:netconf:capability:with-defaults:1.0</nc:capability></nc:capabilities></nc:hello>]]>]]>
+Apr  1 06:48:23 [NETCONF] - [4662] Incoming: <?xml version="1.0" encoding="UTF-8"?><nc:rpc xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:07ce0f8a-47e3-411b-8fcc-e241d9249e9c"><lock-configuration/></nc:rpc>]]>]]>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/19.4R0/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:07ce0f8a-47e3-411b-8fcc-e241d9249e9c">
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: </rpc-reply>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: ]]>]]>
+Apr  1 06:48:23 [NETCONF] - [4662] Incoming: <?xml version="1.0" encoding="UTF-8"?><nc:rpc xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:5c2f0143-1c7f-43d6-aa91-d7ac5e974605"><load-configuration format="text" action="override"/></nc:rpc>]]>]]>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:junos="http://xml.juniper.net/junos/19.4R0/junos" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:5c2f0143-1c7f-43d6-aa91-d7ac5e974605">
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <load-configuration-results>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <rpc-error>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <error-type>protocol</error-type>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <error-tag>operation-failed</error-tag>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <error-severity>error</error-severity>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <error-message>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: internal communications error (tag 'rpc') expecting  configuration-text
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: </error-message>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: </rpc-error>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: </load-configuration-results>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: ]]>]]>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <rpc-error>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <error-type>protocol</error-type>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <error-tag>operation-failed</error-tag>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <error-severity>error</error-severity>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <error-message>syntax error, expecting &lt;/rpc&gt;</error-message>
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: </rpc-error>
+Apr  1 06:48:23 [NETCONF] - [4662] Debug: The last token parsed by mgd [4662] was [(null)] and gram data current token [(null)]
+Apr  1 06:48:23 [NETCONF] - [4662] Outgoing: <!-- session end at 2020-04-01 06:48:23 CDT -->
+
+{master:0}[edit]
+root@spine1# 
